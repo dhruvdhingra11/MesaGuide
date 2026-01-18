@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered GTM Strategy Generator - Complete Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        .nav-tab {
+            padding: 12px 24px;
+            background: #f5f5f5;
+            border: none;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-tab:hover {
+            background: #e0e0e0;
+        }
+
+        .nav-tab.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #667eea;
+            margin: 30px 0 20px 0;
+            font-size: 2em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin: 25px 0 15px 0;
+            font-size: 1.5em;
+        }
+
+        h4 {
+            color: #555;
+            margin: 20px 0 10px 0;
+            font-size: 1.2em;
+        }
+
+        .info-box {
+            background: #f0f7ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .success-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .step-card {
+            background: #f9f9f9;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+
+        details {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: #667eea;
+            font-size: 1.1em;
+            padding: 10px;
+            user-select: none;
+        }
+
+        summary:hover {
+            background: #e8e8e8;
+            border-radius: 6px;
+        }
+
+        details[open] summary {
+            margin-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        code {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            line-height: 1.5;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+        }
+
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .api-endpoint {
+            background: #1e1e1e;
+            color: #4ec9b0;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+
+        .requirement-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .requirement-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .checklist {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .checklist li {
+            padding: 10px;
+            margin: 8px 0;
+            background: #f9f9f9;
+            border-left: 4px solid #28a745;
+            border-radius: 4px;
+        }
+
+        .checklist li:before {
+            content: "✓ ";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background: #f5f5f5;
+        }
+
+        .footer {
+            background: #2d2d2d;
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+            }
+
+            .nav-tab {
+                width: 100%;
+            }
+
+            .requirement-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .emoji {
+            font-size: 1.3em;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 AI-Powered GTM Strategy Generator</h1>
+            <p>Complete Step-by-Step Implementation Guide</p>
+        </div>
+
+        <div class="content">
+            <div class="nav-tabs">
+                <button class="nav-tab active" onclick="showTab('overview')">📋 Overview</button>
+                <button class="nav-tab" onclick="showTab('prerequisites')">🔧 Prerequisites</button>
+                <button class="nav-tab" onclick="showTab('stage1')">Stage 1: Trigger</button>
+                <button class="nav-tab" onclick="showTab('stage2')">Stage 2: Enricher</button>
+                <button class="nav-tab" onclick="showTab('stage3')">Stage 3: GTM Plan</button>
+                <button class="nav-tab" onclick="showTab('stage4')">Stage 4: Mindmap</button>
+                <button class="nav-tab" onclick="showTab('stage5')">Stage 5: Presentation</button>
+                <button class="nav-tab" onclick="showTab('testing')">🧪 Testing</button>
+            </div>
+
+            <!-- Overview Tab -->
+            <div id="overview" class="tab-content active">
+                <h2><span class="emoji">📋</span>Project Overview</h2>
+                
+                <p>This comprehensive guide will walk you through building an automated workflow that generates Go-To-Market strategies, mindmaps, and presentations from a simple Calendly booking.</p>
+
+                <div class="info-box">
+                    <h4>What You'll Build</h4>
+                    <p>An end-to-end automation system that:</p>
+                    <ul>
+                        <li>Captures meeting bookings via Calendly</li>
+                        <li>Analyzes company websites using AI</li>
+                        <li>Generates comprehensive GTM strategies</li>
+                        <li>Creates visual mindmaps on Miro</li>
+                        <li>Produces professional presentations with Gamma AI</li>
+                        <li>Emails results automatically</li>
+                    </ul>
+                </div>
+
+                <h3>Required Tools & APIs</h3>
+                <div class="requirement-list">
+                    <div class="requirement-item">n8n Workflow Platform</div>
+                    <div class="requirement-item">Calendly API</div>
+                    <div class="requirement-item">Google Gemini API</div>
+                    <div class="requirement-item">Miro API</div>
+                    <div class="requirement-item">Gamma AI API</div>
+                    <div class="requirement-item">Gmail Account</div>
+                </div>
+
+                <h3>Workflow Architecture</h3>
+                <div class="step-card">
+                    <p><strong>Stage 1:</strong> Calendly Trigger → Captures meeting bookings</p>
+                    <p><strong>Stage 2:</strong> Website Enricher → AI analyzes company website</p>
+                    <p><strong>Stage 3:</strong> GTM Motion Planner → Creates comprehensive strategy</p>
+                    <p><strong>Stage 4:</strong> Mindmap Creator → Visualizes strategy on Miro</p>
+                    <p><strong>Stage 5:</strong> Presentation Maker → Generates PDF via Gamma AI</p>
+                    <p><strong>Stage 6:</strong> Email Results → Sends links to client</p>
+                </div>
+
+                <h3>Learning Outcomes</h3>
+                <ul class="checklist">
+                    <li>Build complex AI agent workflows</li>
+                    <li>Integrate multiple APIs (Calendly, Miro, Gamma)</li>
+                    <li>Engineer effective prompts for AI agents</li>
+                    <li>Handle API authentication (Bearer tokens, OAuth)</li>
+                    <li>Structure hierarchical data processing</li>
+                    <li>Work with JSON in HTTP requests</li>
+                    <li>Chain multiple AI tasks together</li>
+                    <li>Create dynamic, data-driven outputs</li>
+                </ul>
+            </div>
+
+            <!-- Prerequisites Tab -->
+            <div id="prerequisites" class="tab-content">
+                <h2><span class="emoji">🔧</span>Prerequisites Setup</h2>
+
+                <div class="warning-box">
+                    <strong>⚠️ IMPORTANT:</strong> Complete these setups BEFORE the class. Save all API keys and credentials securely.
+                </div>
+
+                <h3>1. Calendly Setup</h3>
+                <div class="step-card">
+                    <h4><span class="step-number">1</span>Create Account</h4>
+                    <ol>
+                        <li>Go to <a href="https://calendly.com" target="_blank">calendly.com</a></li>
+                        <li>Click "Sign Up" and create a <strong>free account</strong></li>
+                        <li>Complete email verification</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">2</span>Create Meeting Event</h4>
+                    <ol>
+                        <li>Click "Create" → "Event Type"</li>
+                        <li>Choose "One-on-One"</li>
+                        <li>Configure your event:
+                            <ul>
+                                <li><strong>Event Name:</strong> "Demo Call with [Your Agency Name]"</li>
+                                <li><strong>Duration:</strong> 30 minutes</li>
+                                <li><strong>Location:</strong> Google Meet (or your preference)</li>
+                            </ul>
+                        </li>
+                        <li>Set your availability times</li>
+                        <li>Click "Next" → "Save & Close"</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">3</span>Add Custom Question</h4>
+                    <ol>
+                        <li>Edit your event type</li>
+                        <li>Go to "Questions" section</li>
+                        <li>Click "Add Question"</li>
+                        <li>Add: <strong>"Company Website"</strong> (required, one-line text)</li>
+                        <li>Save changes</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">4</span>Generate API Key</h4>
+                    <ol>
+                        <li>Click your profile picture (top right)</li>
+                        <li>Select <strong>"Integrations & Apps"</strong></li>
+                        <li>Click <strong>"Webhooks & API"</strong> from left menu</li>
+                        <li>Scroll to "API & Webhooks"</li>
+                        <li>Click <strong>"Generate New Token"</strong></li>
+                        <li><span class="highlight">COPY AND SAVE THIS API KEY</span></li>
+                    </ol>
+                </div>
+
+                <div class="success-box">
+                    <strong>✓ Calendly Setup Complete!</strong> You should now have your API key saved.
+                </div>
+
+                <hr style="margin: 40px 0;">
+
+                <h3>2. Miro Setup (Critical - Follow Carefully)</h3>
+
+                <div class="warning-box">
+                    <strong>⚠️ CRITICAL:</strong> Miro setup is complex. Follow each step exactly as written.
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">1</span>Create Miro Account</h4>
+                    <ol>
+                        <li>Go to <a href="https://miro.com" target="_blank">miro.com</a></li>
+                        <li>Click "Sign up free"</li>
+                        <li>Create your account</li>
+                        <li><strong>IMPORTANT:</strong> When prompted to set up a team, click <strong>"Skip"</strong> or close the popup</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">2</span>Create Your App</h4>
+                    <ol>
+                        <li>Click your <strong>profile picture</strong> (top right corner)</li>
+                        <li>Select <strong>"Your apps"</strong> (right under "Profile settings")</li>
+                        <li>Click <strong>"Create new app"</strong></li>
+                        <li>You'll see a prompt → Click <strong>"Create team"</strong></li>
+                        <li>Enter <strong>App Name</strong>: "GTM Strategy Generator" (or your choice)</li>
+                        <li><strong>DO NOT tick "User authentication"</strong></li>
+                        <li>Click <strong>"Create"</strong></li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">3</span>Set Permissions</h4>
+                    <ol>
+                        <li>Scroll down to the <strong>"Permissions"</strong> section</li>
+                        <li>Enable these TWO permissions:
+                            <ul>
+                                <li>✅ <code>boards:read</code></li>
+                                <li>✅ <code>boards:write</code></li>
+                            </ul>
+                        </li>
+                        <li>Click <strong>"Install app & get OAuth token"</strong></li>
+                        <li>Select the team you created</li>
+                        <li>Click <strong>"Add"</strong></li>
+                        <li><span class="highlight">COPY THE ACCESS TOKEN</span> (this is your Miro API token)</li>
+                        <li><strong>Save this token securely!</strong></li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">4</span>Get Your Team ID</h4>
+                    <ol>
+                        <li>Click your <strong>profile picture</strong> again</li>
+                        <li>Click <strong>"Users"</strong> from the left sidebar</li>
+                        <li>Look at your browser's <strong>URL bar</strong></li>
+                        <li>The URL looks like: <code>https://miro.com/app/settings/teams/[TEAM_ID]/users</code></li>
+                        <li><span class="highlight">COPY the number between /teams/ and /users/</span></li>
+                        <li>This is your <strong>Team ID</strong> - save it!</li>
+                    </ol>
+                </div>
+
+                <div class="success-box">
+                    <strong>✓ Miro Setup Complete!</strong> You should now have:
+                    <ul style="margin-top: 10px;">
+                        <li>Miro Access Token (starts with "Bearer ...")</li>
+                        <li>Team ID (long number)</li>
+                    </ul>
+                </div>
+
+                <h3>3. Other API Keys Needed</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>How to Get</th>
+                            <th>Documentation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Google Gemini API</strong></td>
+                            <td>Visit Google AI Studio → Get API Key</td>
+                            <td><a href="https://ai.google.dev/" target="_blank">ai.google.dev</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gamma AI API</strong></td>
+                            <td>Contact Gamma support or check your account settings</td>
+                            <td><a href="https://gamma.app/api" target="_blank">gamma.app/api</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gmail OAuth</strong></td>
+                            <td>Configure in n8n directly (OAuth flow)</td>
+                            <td>Setup within n8n credentials</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Stage 1 Tab -->
+            <div id="stage1" class="tab-content">
+                <h2><span class="emoji">🎯</span>Stage 1: Calendly Trigger</h2>
+
+                <div class="info-box">
+                    <strong>Purpose:</strong> This node captures meeting bookings and extracts the company website URL from the booking form.
+                </div>
+
+                <h3>Node Configuration</h3>
+                <div class="step-card">
+                    <h4><span class="step-number">1</span>Add Calendly Trigger Node</h4>
+                    <ol>
+                        <li>In n8n, click the "+" button</li>
+                        <li>Search for "Calendly Trigger"</li>
+                        <li>Click to add the node</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">2</span>Configure Credentials</h4>
+                    <ol>
+                        <li>Click "Create New Credential"</li>
+                        <li>Enter a name: "Calendly API"</li>
+                        <li>Paste your <strong>API Key</strong> (from prerequisites)</li>
+                        <li>Click "Save"</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">3</span>Select Event Type</h4>
+                    <ol>
+                        <li>In the node settings, find "Events"</li>
+                        <li>Select: <code>invitee.created</code></li>
+                        <li>This triggers when someone books a meeting</li>
+                    </ol>
+                </div>
+
+                <h3>Understanding the Output</h3>
+                <p>When someone books a meeting, Calendly sends data like this:</p>
+                <pre><code>{
+  "payload": {
+    "email": "prospect@company.com",
+    "name": "John Doe",
+    "questions_and_answers": [
+      {
+        "question": "Company Website",
+        "answer": "https://www.example.com"
+      }
+    ]
+  }
+}</code></pre>
+
+                <p>The website URL is accessed via: <code>$json.payload.questions_and_answers[0].answer</code></p>
+
+                <div class="success-box">
+                    <strong>✓ Stage 1 Complete!</strong> Your workflow now starts automatically when prospects book meetings.
+                </div>
+            </div>
+
+            <!-- Stage 2 Tab -->
+            <div id="stage2" class="tab-content">
+                <h2><span class="emoji">🔍</span>Stage 2: Website Enricher</h2>
+
+                <div class="info-box">
+                    <strong>Purpose:</strong> This AI agent analyzes the company's website and extracts comprehensive business intelligence for GTM planning.
+                </div>
+
+                <h3>Understanding AI Agents</h3>
+                <div class="step-card">
+                    <h4>What is an AI Agent?</h4>
+                    <p>Unlike simple chatbots, AI Agents can:</p>
+                    <ul>
+                        <li><strong>Reason:</strong> Break down complex tasks into steps</li>
+                        <li><strong>Plan:</strong> Decide which actions to take</li>
+                        <li><strong>Execute:</strong> Use tools and APIs</li>
+                        <li><strong>Iterate:</strong> Keep working until the goal is achieved</li>
+                    </ul>
+                </div>
+
+                <h3>Node Configuration</h3>
+                <div class="step-card">
+                    <h4><span class="step-number">1</span>Add AI Agent Node</h4>
+                    <ol>
+                        <li>Click "+" after Calendly Trigger</li>
+                        <li>Search for "AI Agent"</li>
+                        <li>Select "AI Agent" node</li>
+                        <li>Rename it to: "Website Enricher"</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">2</span>Connect AI Model</h4>
+                    <ol>
+                        <li>Click "Add AI Model"</li>
+                        <li>Select "Google Gemini Chat Model"</li>
+                        <li>Configure credentials with your Gemini API key</li>
+                        <li>Select model: <code>models/gemini-3-flash-preview</code></li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">3</span>Configure Prompt</h4>
+                    <ol>
+                        <li>Prompt Type: <strong>Define</strong></li>
+                        <li>In "Text" field, enter:</li>
+                    </ol>
+                    <pre><code>Here's the domain: {{ $json.payload.questions_and_answers[0].answer }}</code></pre>
+                    <p>This passes the website URL from Calendly to the AI.</p>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">4</span>System Prompt</h4>
+                    <p>The system prompt tells the AI what to do. Click below to view the full prompt:</p>
+                    
+                    <details>
+                        <summary>📖 Full System Prompt for Website Enricher</summary>
+                        <pre><code>You are an AI agent specialized in comprehensive website analysis for Go-To-Market (GTM) strategy planning. Your primary role is to systematically scan and extract relevant information from all pages of a target website to build a complete understanding of the business, its offerings, target audience, and market positioning.
+
+YOUR MISSION
+
+Scan the entire website thoroughly and collect structured data that will be used to create a comprehensive Go-To-Market plan. You must be methodical, detailed, and ensure no critical information is missed.
+
+WHAT YOU NEED TO COLLECT
+
+1. COMPANY OVERVIEW
+- Company name and tagline
+- Mission statement and vision
+- Company history and background
+- Leadership team and key personnel
+- Company size and structure
+- Geographic presence and locations
+
+2. PRODUCTS AND SERVICES
+- Complete list of all products/services offered
+- Product/service descriptions and features
+- Unique selling propositions (USPs)
+- Product categories and classifications
+- Pricing information (if available)
+
+3. TARGET AUDIENCE AND CUSTOMER SEGMENTS
+- Identified customer personas
+- Industry verticals served
+- Company size focus (SMB, Mid-market, Enterprise)
+- Geographic markets targeted
+- B2B vs B2C orientation
+- Customer testimonials and case studies
+
+4. VALUE PROPOSITION
+- Main benefits highlighted
+- Problem-solution statements
+- Competitive advantages claimed
+- Key differentiators
+- Brand positioning statements
+
+5. MARKETING AND SALES CHANNELS
+- Marketing strategies evident on site
+- Lead generation methods
+- Sales contact methods
+- Social media presence
+- Content marketing approach
+
+WEBSITE SCANNING METHODOLOGY
+
+PHASE 1: HOMEPAGE ANALYSIS
+Start with the homepage - extract primary value proposition, navigation, key products/services
+
+PHASE 2: MAIN NAVIGATION CRAWL
+Visit: About Us, Products/Services, Solutions, Pricing, Resources, Contact
+
+PHASE 3: FOOTER AND SECONDARY LINKS
+Explore footer for legal pages, additional resources, partner info
+
+PHASE 4: PRODUCT/SERVICE DEEP DIVE
+For each product, visit dedicated pages, read features, note pricing
+
+STRUCTURED OUTPUT FORMAT
+
+Organize findings in clear sections:
+- SECTION 1: EXECUTIVE SUMMARY
+- SECTION 2: COMPANY INTELLIGENCE
+- SECTION 3: PRODUCT/SERVICE CATALOG
+- SECTION 4: TARGET MARKET ANALYSIS
+- SECTION 5: VALUE PROPOSITION & POSITIONING
+- SECTION 6: MARKETING & SALES INSIGHTS
+- SECTION 7: PRICING & BUSINESS MODEL
+- SECTION 8: COMPETITIVE INTELLIGENCE
+- SECTION 9: CONTENT & MESSAGING THEMES
+- SECTION 10: TECHNOLOGY & INTEGRATIONS
+
+CRITICAL REMINDERS
+
+1. Be thorough - missing information creates gaps
+2. Stay objective - collect facts, not opinions
+3. Document sources - note which page had information
+4. Look for patterns - recurring themes indicate priorities</code></pre>
+                    </details>
+                </div>
+
+                <h3>How to Create Your Own System Prompt</h3>
+                <div class="step-card">
+                    <p>Use ChatGPT or Claude with this meta-prompt:</p>
+                    <pre><code>Create a system prompt for an AI agent that needs to analyze websites and extract business intelligence for GTM planning. The agent should:
+
+1. Identify the company's core business
+2. Extract product/service information
+3. Understand target audience
+4. Identify competitive positioning
+5. Analyze marketing strategies
+
+Structure the prompt with:
+- Role definition
+- Mission statement
+- Data collection categories
+- Methodology phases
+- Output format requirements</code></pre>
+                </div>
+
+                <h3>Prompt Engineering Best Practices</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Element</th>
+                            <th>Purpose</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Role Definition</strong></td>
+                            <td>Tells AI who it is</td>
+                            <td>"You are an AI agent specialized in..."</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mission Statement</strong></td>
+                            <td>Defines clear objective</td>
+                            <td>"Your mission is to scan websites and extract..."</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Detailed Instructions</strong></td>
+                            <td>Breaks down tasks</td>
+                            <td>"PHASE 1: Analyze homepage, PHASE 2: Crawl navigation..."</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Output Format</strong></td>
+                            <td>Structures the response</td>
+                            <td>"Organize findings in sections with headers..."</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Quality Standards</strong></td>
+                            <td>Ensures accuracy</td>
+                            <td>"Be thorough, stay objective, document sources..."</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="success-box">
+                    <strong>✓ Stage 2 Complete!</strong> Your AI agent can now analyze any website and extract comprehensive business intelligence.
+                </div>
+            </div>
+
+            <!-- Stage 3 Tab -->
+            <div id="stage3" class="tab-content">
+                <h2><span class="emoji">📊</span>Stage 3: GTM Motion Planner</h2>
+
+                <div class="info-box">
+                    <strong>Purpose:</strong> This AI agent transforms website intelligence into a comprehensive, actionable Go-To-Market strategy.
+                </div>
+
+                <h3>Node Configuration</h3>
+                <div class="step-card">
+                    <h4><span class="step-number">1</span>Add AI Agent Node</h4>
+                    <ol>
+                        <li>Click "+" after Website Enricher</li>
+                        <li>Add "AI Agent" node</li>
+                        <li>Rename to: "GTM Motion Planner"</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">2</span>Connect AI Model</h4>
+                    <ol>
+                        <li>Add "Google Gemini Chat Model"</li>
+                        <li>Use same credentials as before</li>
+                        <li>Model: <code>models/gemini-3-flash-preview</code></li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">3</span>Configure Input</h4>
+                    <ol>
+                        <li>Prompt Type: <strong>Define</strong></li>
+                        <li>In "Text" field:</li>
+                    </ol>
+                    <pre><code>{{ $json.output }}</code></pre>
+                    <p>This takes the website analysis output from the previous node.</p>
+                </div>
+
+                <details>
+                    <summary>📋 Full System Prompt for GTM Planner</summary>
+                    <pre><code>GTM STRATEGY WRITER - SYSTEM PROMPT
+
+You are an AI agent specialized in creating comprehensive, actionable Go-To-Market (GTM) motion plans for B2B businesses. Your role is to take website intelligence data and transform it into a strategic, execution-ready GTM plan focused on: LinkedIn content, Instagram content, cold email outreach, community building, and warm lead generation.
+
+CRITICAL OUTPUT CONSTRAINT
+Your complete GTM plan response MUST NOT exceed 95,000 characters.
+
+YOUR MISSION
+Transform raw website data into a battle-tested GTM motion plan that a business can immediately implement.
+
+GTM PLAN STRUCTURE
+
+SECTION 1: EXECUTIVE SUMMARY (MAX 3000 CHARS)
+- Business snapshot (what they sell, who they serve)
+- Core GTM recommendation
+- Key success metrics (3-5 KPIs)
+- Timeline overview (30-60-90 days)
+- Expected outcomes
+
+SECTION 2: IDEAL CUSTOMER PROFILE & BUYER PERSONAS (MAX 8000 CHARS)
+ICP Framework:
+- Company size (employees, revenue)
+- Industry verticals (top 3-5)
+- Geographic markets
+- Technology stack indicators
+- Budget range
+- Pain points and triggers
+
+Buyer Personas (Create 2-3):
+- Role and title
+- Responsibilities and goals
+- Pain points
+- Decision-making authority
+- Preferred channels
+
+SECTION 3: VALUE PROPOSITION & MESSAGING (MAX 6000 CHARS)
+- Core Value Proposition
+- Key differentiators (top 3)
+- Messaging Framework
+- Channel-Specific Messaging
+
+SECTION 4: LINKEDIN CONTENT STRATEGY (MAX 15000 CHARS)
+- Content Pillars (4-5)
+- Content Calendar Framework
+- Posting frequency: 4-6 times/week
+- Content mix: 70% educational, 20% social proof, 10% promotional
+- Engagement Strategy
+- Lead Generation tactics
+
+SECTION 5: INSTAGRAM CONTENT STRATEGY (MAX 12000 CHARS)
+- Instagram B2B Rationale
+- Content Pillars
+- Content Format Strategy
+- Visual Brand Guidelines
+- Posting frequency: 4-5 times/week
+- Engagement Tactics
+
+SECTION 6: COLD EMAIL OUTREACH STRATEGY (MAX 15000 CHARS)
+- Lead Generation Process
+- Email Infrastructure Setup
+- Email Sequence:
+  * Email 1: Initial outreach (day 0)
+  * Email 2: Value-add follow-up (day 3)
+  * Email 3: Different angle (day 7)
+  * Email 4: Final attempt (day 14)
+- Personalization Strategy
+
+SECTION 7: COMMUNITY BUILDING STRATEGY (MAX 12000 CHARS)
+- Community Vision
+- Platform Selection (LinkedIn Group, Slack, Discord)
+- Community Launch Plan:
+  * Phase 1: Foundation (50-100 members)
+  * Phase 2: Growth (200-500 members)
+  * Phase 3: Maturity (self-sustaining)
+- Engagement Mechanisms
+
+SECTION 8: WARM LEAD GENERATION & NURTURING (MAX 12000 CHARS)
+- Warm Lead Definition
+- Lead Capture Mechanisms
+- Email Nurture Sequences
+- Lead Scoring System
+
+SECTION 9: IMPLEMENTATION ROADMAP (MAX 8000 CHARS)
+Days 1-30: Foundation
+Days 31-60: Launch
+Days 61-90: Scale
+
+SECTION 10: METRICS, ANALYTICS & OPTIMIZATION (MAX 8000 CHARS)
+- North Star Metric
+- Channel-Specific KPIs
+- Reporting Framework
+
+SECTION 11: BUDGET & ROI PROJECTIONS (MAX 5000 CHARS)
+- Budget Breakdown by Channel
+- ROI Projections
+
+SECTION 12: QUICK WINS & PRIORITY ACTIONS (MAX 4000 CHARS)
+- Week 1 Quick Wins
+- Month 1 Priority Actions
+
+WRITING GUIDELINES
+
+- Be concise and action-oriented
+- Use bullet points extensively
+- Provide exact numbers (posting frequency, metrics)
+- Give specific examples
+- Tailor to the specific company
+- Stay under 95,000 characters total</code></pre>
+                </details>
+
+                <h3>Understanding GTM Strategy Structure</h3>
+                <div class="step-card">
+                    <h4>Key Components of a GTM Plan</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Section</th>
+                                <th>What It Covers</th>
+                                <th>Why Important</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>ICP & Personas</strong></td>
+                                <td>Who you're selling to</td>
+                                <td>Focuses all marketing efforts</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Value Proposition</strong></td>
+                                <td>Why customers should buy</td>
+                                <td>Core messaging foundation</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Channel Strategies</strong></td>
+                                <td>How to reach customers</td>
+                                <td>Execution roadmap</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Implementation Roadmap</strong></td>
+                                <td>When to execute tactics</td>
+                                <td>Ensures organized rollout</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Metrics</strong></td>
+                                <td>What success looks like</td>
+                                <td>Enables measurement & optimization</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Creating Strategic Prompts</h3>
+                <p>To create a GTM planning prompt, use this template with ChatGPT/Claude:</p>
+                <pre><code>Create a system prompt for an AI that generates GTM strategies. It should:
+
+1. Take business intelligence as input
+2. Create detailed plans across 5 channels:
+   - LinkedIn content marketing
+   - Instagram brand building
+   - Cold email outreach
+   - Community building
+   - Warm lead nurturing
+
+3. Include specific tactics, timelines, and metrics
+4. Provide 30-60-90 day implementation roadmap
+5. Stay under 95,000 characters total
+
+Structure with 12 sections covering:
+- Strategy (ICP, messaging, value prop)
+- Execution (channel-specific tactics)
+- Measurement (KPIs and analytics)</code></pre>
+
+                <div class="success-box">
+                    <strong>✓ Stage 3 Complete!</strong> Your AI agent can now create comprehensive, actionable GTM strategies.
+                </div>
+            </div>
+
+            <!-- Stage 4 Tab -->
+            <div id="stage4" class="tab-content">
+                <h2><span class="emoji">🗺️</span>Stage 4: Mindmap Creator (Miro Integration)</h2>
+
+                <div class="warning-box">
+                    <strong>⚠️ MOST COMPLEX STAGE:</strong> This involves multiple API tools working together. Follow carefully!
+                </div>
+
+                <div class="info-box">
+                    <strong>Purpose:</strong> This AI agent orchestrates 3 Miro API endpoints to create visual mindmaps of GTM strategies.
+                </div>
+
+                <h3>Understanding the Miro API Integration</h3>
+                <div class="step-card">
+                    <h4>The Three API Tools</h4>
+                    <ol>
+                        <li><strong>CREATE BOARD:</strong> Makes a new Miro board</li>
+                        <li><strong>CREATE SHAPE ITEM:</strong> Adds shapes (boxes, circles) to the board</li>
+                        <li><strong>CREATE CONNECTOR:</strong> Draws lines between shapes</li>
+                    </ol>
+                    <p>The AI agent decides when and how to call each tool based on the GTM plan.</p>
+                </div>
+
+                <h3>Tool 1: CREATE BOARD</h3>
+                <div class="step-card">
+                    <h4><span class="step-number">1</span>Add HTTP Request Tool</h4>
+                    <ol>
+                        <li>Click "+" to add a node</li>
+                        <li>Search for "HTTP Request Tool"</li>
+                        <li>Rename to: "CREATE BOARD"</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">2</span>Configure Tool Description</h4>
+                    <p>This tells the AI when to use this tool:</p>
+                    <pre><code>Creates a new board on Miro for the mindmap.
+Required parameter: board_name (string)</code></pre>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">3</span>Configure HTTP Request</h4>
+                    <p><strong>Method:</strong> POST</p>
+                    <p><strong>URL:</strong></p>
+                    <div class="api-endpoint">https://api.miro.com/v2/boards</div>
+                    
+                    <p><strong>Headers:</strong></p>
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                        </tr>
+                        <tr>
+                            <td>Authorization</td>
+                            <td><code>Bearer YOUR_MIRO_ACCESS_TOKEN</code></td>
+                        </tr>
+                    </table>
+                    <div class="warning-box">
+                        <strong>⚠️ REPLACE:</strong> <code>YOUR_MIRO_ACCESS_TOKEN</code> with your actual token from prerequisites
+                    </div>
+
+                    <p><strong>Body Type:</strong> JSON</p>
+                    <p><strong>JSON Body:</strong></p>
+                    <pre><code>{
+  "name": "{{ $fromAI('board_name') }}",
+  "teamId": "YOUR_TEAM_ID",
+  "policy": {
+    "sharingPolicy": {
+      "access": "view"
+    }
+  }
+}</code></pre>
+                    <div class="warning-box">
+                        <strong>⚠️ REPLACE:</strong> <code>YOUR_TEAM_ID</code> with your Team ID from prerequisites
+                    </div>
+                </div>
+
+                <details>
+                    <summary>🔍 Understanding this API Call</summary>
+                    <ul>
+                        <li><strong>Endpoint:</strong> <code>/v2/boards</code> creates a new board</li>
+                        <li><strong>Authorization Header:</strong> Bearer token authenticates your request</li>
+                        <li><strong>$fromAI('board_name'):</strong> AI provides the board name dynamically</li>
+                        <li><strong>teamId:</strong> Specifies which Miro team owns this board</li>
+                        <li><strong>sharingPolicy:</strong> Sets access permissions (view/edit)</li>
+                    </ul>
+                    <p><strong>Response Example:</strong></p>
+                    <pre><code>{
+  "id": "uXjVGOly-mw=",
+  "name": "Company GTM Plan",
+  "teamId": "3458764655803963225"
+}</code></pre>
+                    <p>The AI stores the <code>id</code> to use in subsequent calls.</p>
+                </details>
+
+                <hr style="margin: 30px 0;">
+
+                <h3>Tool 2: CREATE SHAPE ITEM</h3>
+                <div class="step-card">
+                    <h4><span class="step-number">1</span>Add HTTP Request Tool</h4>
+                    <ol>
+                        <li>Add another "HTTP Request Tool"</li>
+                        <li>Rename to: "CREATE SHAPE ITEM"</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">2</span>Configure Tool Description</h4>
+                    <pre><code>Creates a shape on a Miro board.
+
+Required parameters (EXACT format):
+- board_id: string (e.g. "uXjVGOly-mw=")
+- shape_content: string (e.g. "Target Market")
+- shape_type: string (must be: rectangle, round_rectangle, circle, rhombus)
+- fill_color: string (e.g. "#8fd14f")
+- position_x: number (e.g. 100)
+- position_y: number (e.g. 0)
+- width: number (e.g. 200)
+- height: number (e.g. 100)
+
+CRITICAL: position_x, position_y, width, height must be numbers without quotes.</code></pre>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">3</span>Configure HTTP Request</h4>
+                    <p><strong>Method:</strong> POST</p>
+                    <p><strong>URL:</strong></p>
+                    <div class="api-endpoint">https://api.miro.com/v2/boards/{{ $fromAI('board_id') }}/shapes/</div>
+                    
+                    <p><strong>Headers:</strong></p>
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                        </tr>
+                        <tr>
+                            <td>Authorization</td>
+                            <td><code>Bearer YOUR_MIRO_ACCESS_TOKEN</code></td>
+                        </tr>
+                    </table>
+
+                    <p><strong>JSON Body:</strong></p>
+                    <pre><code>{
+  "data": {
+    "content": "{{ $fromAI('shape_content') }}",
+    "shape": "{{ $fromAI('shape_type') }}"
+  },
+  "style": {
+    "fillColor": "{{ $fromAI('fill_color') }}",
+    "borderColor": "#1a1a1a",
+    "borderOpacity": "1.0",
+    "borderWidth": "2",
+    "color": "#1a1a1a",
+    "fontFamily": "arial",
+    "fontSize": "14",
+    "textAlign": "center"
+  },
+  "position": {
+    "x": {{ $fromAI('position_x') }},
+    "y": {{ $fromAI('position_y') }}
+  },
+  "geometry": {
+    "width": {{ $fromAI('width') }},
+    "height": {{ $fromAI('height') }}
+  }
+}</code></pre>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ CRITICAL: Data Types Matter!</h4>
+                    <p>Notice the difference:</p>
+                    <ul>
+                        <li><strong>Strings (with quotes):</strong> <code>"{{ $fromAI('shape_content') }}"</code></li>
+                        <li><strong>Numbers (NO quotes):</strong> <code>{{ $fromAI('position_x') }}</code></li>
+                    </ul>
+                    <p>If you add quotes around numbers, the API will fail!</p>
+                </div>
+
+                <details>
+                    <summary>🔍 Understanding this API Call</summary>
+                    <ul>
+                        <li><strong>Dynamic URL:</strong> Board ID is inserted from AI's decision</li>
+                        <li><strong>data.content:</strong> The text displayed in the shape</li>
+                        <li><strong>data.shape:</strong> Type (rectangle, circle, rhombus, round_rectangle)</li>
+                        <li><strong>style:</strong> Visual appearance (colors, borders, fonts)</li>
+                        <li><strong>position:</strong> X,Y coordinates on the canvas (0,0 is center)</li>
+                        <li><strong>geometry:</strong> Size of the shape in pixels</li>
+                    </ul>
+                    <p><strong>Example AI Call:</strong></p>
+                    <pre><code>board_id = "uXjVGOly-mw="
+shape_content = "Target Market"
+shape_type = "round_rectangle"
+fill_color = "#0CA789"
+position_x = 400
+position_y = 0
+width = 220
+height = 110</code></pre>
+                    <p><strong>Response:</strong></p>
+                    <pre><code>{
+  "id": "3458764655804012345",
+  "type": "shape",
+  "data": {
+    "content": "Target Market",
+    "shape": "round_rectangle"
+  }
+}</code></pre>
+                    <p>AI stores the shape <code>id</code> for creating connectors.</p>
+                </details>
+
+                <hr style="margin: 30px 0;">
+
+                <h3>Tool 3: CREATE CONNECTOR</h3>
+                <div class="step-card">
+                    <h4><span class="step-number">1</span>Add HTTP Request Tool</h4>
+                    <ol>
+                        <li>Add another "HTTP Request Tool"</li>
+                        <li>Rename to: "CREATE CONNECTOR"</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">2</span>Configure Tool Description</h4>
+                    <pre><code>Creates a connector line between two shapes on a Miro board.
+
+Required parameters (EXACT format):
+- board_id: string (the board ID from CREATE BOARD)
+- start_shape_id: string (ID of the starting shape)
+- end_shape_id: string (ID of the ending shape)
+
+CRITICAL: Both shapes must already exist before creating a connector</code></pre>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">3</span>Configure HTTP Request</h4>
+                    <p><strong>Method:</strong> POST</p>
+                    <p><strong>URL:</strong></p>
+                    <div class="api-endpoint">https://api.miro.com/v2/boards/{{ $fromAI('board_id') }}/connectors/</div>
+                    
+                    <p><strong>Headers:</strong></p>
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                        </tr>
+                        <tr>
+                            <td>Authorization</td>
+                            <td><code>Bearer YOUR_MIRO_ACCESS_TOKEN</code></td>
+                        </tr>
+                    </table>
+
+                    <p><strong>JSON Body:</strong></p>
+                    <pre><code>{
+  "startItem": {
+    "id": "{{ $fromAI('start_shape_id') }}"
+  },
+  "endItem": {
+    "id": "{{ $fromAI('end_shape_id') }}"
+  },
+  "shape": "straight",
+  "style": {
+    "strokeColor": "#2d9bf0",
+    "strokeWidth": 2
+  }
+}</code></pre>
+                </div>
+
+                <hr style="margin: 30px 0;">
+
+                <h3>The Mindmap Creator AI Agent</h3>
+                <div class="step-card">
+                    <h4><span class="step-number">1</span>Add AI Agent Node</h4>
+                    <ol>
+                        <li>Add "AI Agent" node</li>
+                        <li>Rename to: "Mindmap Creator"</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">2</span>Connect AI Model</h4>
+                    <ol>
+                        <li>Add "Google Gemini Chat Model"</li>
+                        <li>Same credentials as before</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">3</span>Connect the Three Tools</h4>
+                    <ol>
+                        <li>Click "Add Tool" three times</li>
+                        <li>Connect: CREATE BOARD</li>
+                        <li>Connect: CREATE SHAPE ITEM</li>
+                        <li>Connect: CREATE CONNECTOR</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">4</span>Configure Settings</h4>
+                    <ul>
+                        <li><strong>Prompt Type:</strong> Define</li>
+                        <li><strong>Text:</strong> <code>{{ $json.output }}</code></li>
+                        <li><strong>Max Iterations:</strong> 80 (allows many tool calls)</li>
+                    </ul>
+                </div>
+
+                <details>
+                    <summary>📋 Full System Prompt for Mindmap Creator</summary>
+                    <pre><code>You are an AI agent specialized in creating mindmaps on Miro boards using the Miro REST API.
+
+CRITICAL: HOW TO CALL THE TOOLS
+
+TOOL 1: CREATE BOARD
+Parameters: board_name (string)
+
+TOOL 2: CREATE SHAPE ITEM
+Parameters (EXACT names):
+- board_id: string
+- shape_content: string
+- shape_type: string (rectangle, round_rectangle, circle, rhombus)
+- fill_color: string (hex with #)
+- position_x: NUMBER (no quotes!)
+- position_y: NUMBER (no quotes!)
+- width: NUMBER (no quotes!)
+- height: NUMBER (no quotes!)
+
+TOOL 3: CREATE CONNECTOR
+Parameters:
+- board_id: string
+- start_shape_id: string
+- end_shape_id: string
+
+WORKFLOW EXECUTION
+
+STEP 1: CREATE BOARD
+- Call CREATE BOARD with board_name
+- STORE the board ID from response
+
+STEP 2: CREATE SHAPES
+- Call CREATE SHAPE ITEM multiple times
+- Create: Central → Primary → Secondary → Tertiary
+- STORE each shape ID
+
+STEP 3: CREATE CONNECTORS
+- Link shapes using stored IDs
+- Connect hierarchically
+
+MINDMAP LAYOUT
+
+Central Node: (0, 0)
+
+Primary Branches (400px from center):
+- Right: (400, 0)
+- Bottom-right: (300, 300)
+- Bottom: (0, 400)
+- Bottom-left: (-300, 300)
+- Left: (-400, 0)
+- Top-left: (-300, -300)
+- Top: (0, -400)
+- Top-right: (300, -300)
+
+GTM COLOR SCHEME:
+- Central: "#4262FF"
+- Target Market: "#0CA789"
+- Value Prop: "#9510AC"
+- Marketing: "#FAC710"
+- Sales: "#F24726"
+- Pricing: "#17A2B8"
+- Timeline: "#FFC107"
+- Metrics: "#28A745"
+
+SHAPE SIZES:
+- Central: width=300, height=140
+- Primary: width=220, height=110
+- Secondary: width=190, height=90
+
+REQUIREMENTS:
+- Minimum 8 primary branches
+- Each primary MUST have 3+ secondary nodes</code></pre>
+                </details>
+
+                <h3>Understanding Tool Orchestration</h3>
+                <div class="step-card">
+                    <h4>How the AI Uses Multiple Tools</h4>
+                    <ol>
+                        <li><strong>Receives GTM Plan:</strong> AI reads the strategy</li>
+                        <li><strong>Plans Structure:</strong> Decides what to visualize</li>
+                        <li><strong>Creates Board:</strong> Calls CREATE BOARD tool</li>
+                        <li><strong>Stores Board ID:</strong> Remembers ID for next calls</li>
+                        <li><strong>Creates Central Shape:</strong> Calls CREATE SHAPE with position (0,0)</li>
+                        <li><strong>Stores Shape ID:</strong> Remembers for connectors</li>
+                        <li><strong>Creates Primary Branches:</strong> Multiple CREATE SHAPE calls</li>
+                        <li><strong>Creates Secondary Nodes:</strong> More CREATE SHAPE calls</li>
+                        <li><strong>Draws Connections:</strong> Multiple CREATE CONNECTOR calls</li>
+                        <li><strong>Returns Result:</strong> Provides board URL and summary</li>
+                    </ol>
+                </div>
+
+                <div class="success-box">
+                    <strong>✓ Stage 4 Complete!</strong> Your AI agent can now create beautiful, structured mindmaps on Miro!
+                </div>
+            </div>
+
+            <!-- Stage 5 Tab -->
+            <div id="stage5" class="tab-content">
+                <h2><span class="emoji">📊</span>Stage 5: Presentation Generation</h2>
+
+                <div class="info-box">
+                    <strong>Purpose:</strong> Convert the GTM plan into a professional presentation using Gamma AI and email the results.
+                </div>
+
+                <h3>Step 1: Generate Presentation with Gamma AI</h3>
+                <div class="step-card">
+                    <h4><span class="step-number">1</span>Add HTTP Request Node</h4>
+                    <ol>
+                        <li>Click "+" after GTM Motion Planner</li>
+                        <li>Search for "HTTP Request" (regular node, not tool)</li>
+                        <li>Rename to: "Gamma AI Presentation Maker"</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">2</span>Configure Request</h4>
+                    <p><strong>Method:</strong> POST</p>
+                    <p><strong>URL:</strong></p>
+                    <div class="api-endpoint">https://public-api.gamma.app/v1.0/generations</div>
+                    
+                    <p><strong>Headers:</strong></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>accept</td>
+                                <td><code>application/json</code></td>
+                            </tr>
+                            <tr>
+                                <td>X-API-KEY</td>
+                                <td><code>YOUR_GAMMA_API_KEY</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="warning-box">
+                        <strong>⚠️ REPLACE:</strong> <code>YOUR_GAMMA_API_KEY</code> with your Gamma AI API key
+                    </div>
+
+                    <p><strong>Body Type:</strong> JSON</p>
+                    <p><strong>JSON Body:</strong></p>
+                    <pre><code>{
+  "inputText": {{ JSON.stringify($('GTM Motion Planner (Gamma AI)').item.json.output) }},
+  "textMode": "preserve",
+  "format": "presentation",
+  "cardSplit": "auto",
+  "exportAs": "pdf",
+  "imageOptions": {
+    "source": "noImages"
+  },
+  "sharingOptions": {
+    "workspaceAccess": "edit",
+    "externalAccess": "edit",
+    "emailOptions": {
+      "recipients": ["YOUR_EMAIL@example.com"],
+      "access": "fullAccess"
+    }
+  }
+}</code></pre>
+                    <div class="warning-box">
+                        <strong>⚠️ REPLACE:</strong> <code>YOUR_EMAIL@example.com</code> with your email
+                    </div>
+                </div>
+
+                <details>
+                    <summary>🔍 Understanding this API Call</summary>
+                    <h4>Parameters Explained:</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Value</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>inputText</strong></td>
+                                <td>GTM plan output</td>
+                                <td>Content to convert to presentation</td>
+                            </tr>
+                            <tr>
+                                <td><strong>JSON.stringify()</strong></td>
+                                <td>-</td>
+                                <td>Converts text to proper JSON format</td>
+                            </tr>
+                            <tr>
+                                <td><strong>textMode</strong></td>
+                                <td>"preserve"</td>
+                                <td>Keeps original formatting</td>
+                            </tr>
+                            <tr>
+                                <td><strong>format</strong></td>
+                                <td>"presentation"</td>
+                                <td>Creates slides (not document)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>cardSplit</strong></td>
+                                <td>"auto"</td>
+                                <td>AI decides slide breaks</td>
+                            </tr>
+                            <tr>
+                                <td><strong>exportAs</strong></td>
+                                <td>"pdf"</td>
+                                <td>Generates downloadable PDF</td>
+                            </tr>
+                            <tr>
+                                <td><strong>imageOptions</strong></td>
+                                <td>"noImages"</td>
+                                <td>Skips AI image generation (faster)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>Response Example:</h4>
+                    <pre><code>{
+  "generationId": "OVF7yqpoCUaMO1fcxEbhy",
+  "status": "processing"
+}</code></pre>
+                    <p>The <code>generationId</code> is used to check status and get the final URL.</p>
+                </details>
+
+                <hr style="margin: 30px 0;">
+
+                <h3>Step 2: Get Presentation Status & URLs</h3>
+                <div class="step-card">
+                    <h4><span class="step-number">1</span>Add HTTP Request Node</h4>
+                    <ol>
+                        <li>Add another "HTTP Request" node</li>
+                        <li>Rename to: "Get Presentation Status"</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">2</span>Configure Request</h4>
+                    <p><strong>Method:</strong> GET</p>
+                    <p><strong>URL:</strong></p>
+                    <div class="api-endpoint">https://public-api.gamma.app/v1.0/generations/{{ $json.generationId }}</div>
+                    
+                    <p><strong>Headers:</strong> (Same as previous step)</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>accept</td>
+                                <td><code>application/json</code></td>
+                            </tr>
+                            <tr>
+                                <td>X-API-KEY</td>
+                                <td><code>YOUR_GAMMA_API_KEY</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="info-box">
+                    <h4>Understanding the Dynamic URL</h4>
+                    <p><code>{{ $json.generationId }}</code> automatically inserts the ID from the previous node's response.</p>
+                    <p><strong>Response when complete:</strong></p>
+                    <pre><code>{
+  "generationId": "OVF7yqpoCUaMO1fcxEbhy",
+  "status": "completed",
+  "gammaUrl": "https://gamma.app/docs/xhbnxa3eyddlb1s",
+  "exportUrl": "https://assets.api.gamma.app/export/pdf/...",
+  "credits": {
+    "deducted": 30,
+    "remaining": 4282
+  }
+}</code></pre>
+                </div>
+
+                <hr style="margin: 30px 0;">
+
+                <h3>Step 3: Email the Results</h3>
+                <div class="step-card">
+                    <h4><span class="step-number">1</span>Add Gmail Node</h4>
+                    <ol>
+                        <li>Add "Gmail" node</li>
+                        <li>Select operation: "Send a message"</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">2</span>Configure Credentials</h4>
+                    <ol>
+                        <li>Click "Create New Credential"</li>
+                        <li>Follow Gmail OAuth flow</li>
+                        <li>Grant necessary permissions</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">3</span>Configure Email</h4>
+                    <p><strong>Send To:</strong></p>
+                    <pre><code>dhruvdhingra456@gmail.com</code></pre>
+                    
+                    <p><strong>Subject:</strong></p>
+                    <pre><code>Your Gamma Presentation: {{ $json.exportUrl.split('/').pop() }}</code></pre>
+                    
+                    <p><strong>Message (HTML):</strong></p>
+                    <pre><code>&lt;p&gt;Your presentation is ready for download.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Download PDF:&lt;/strong&gt; &lt;a href="{{ $json.exportUrl }}"&gt;Click here to view your GTM Plan&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Alternatively, you can view the interactive version here: {{ $json.gammaUrl }}&lt;/p&gt;</code></pre>
+                </div>
+
+                <details>
+                    <summary>🔍 Understanding the Email Expressions</summary>
+                    <h4>Expression Breakdown:</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Expression</th>
+                                <th>What It Does</th>
+                                <th>Example Output</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>$json.exportUrl.split('/').pop()</code></td>
+                                <td>Extracts filename from URL</td>
+                                <td>"GTM-Plan-for-Nugget.pdf"</td>
+                            </tr>
+                            <tr>
+                                <td><code>{{ $json.exportUrl }}</code></td>
+                                <td>Inserts PDF download link</td>
+                                <td>https://assets.api.gamma.app/export/pdf/...</td>
+                            </tr>
+                            <tr>
+                                <td><code>{{ $json.gammaUrl }}</code></td>
+                                <td>Inserts interactive presentation link</td>
+                                <td>https://gamma.app/docs/xhbnxa3eyddlb1s</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </details>
+
+                <div class="success-box">
+                    <strong>✓ Stage 5 Complete!</strong> Your workflow now generates presentations and emails them automatically!
+                </div>
+            </div>
+
+            <!-- Testing Tab -->
+            <div id="testing" class="tab-content">
+                <h2><span class="emoji">🧪</span>Testing Your Workflow</h2>
+
+                <div class="warning-box">
+                    <strong>Before Testing:</strong> Make sure ALL nodes are properly configured with your API credentials.
+                </div>
+
+                <h3>Pre-Flight Checklist</h3>
+                <ul class="checklist">
+                    <li>Calendly API key configured</li>
+                    <li>Gemini API key configured</li>
+                    <li>Miro Access Token in all 3 HTTP tools</li>
+                    <li>Miro Team ID in CREATE BOARD tool</li>
+                    <li>Gamma AI API key configured</li>
+                    <li>Gmail OAuth connected</li>
+                    <li>All nodes properly connected</li>
+                    <li>Workflow is activated</li>
+                </ul>
+
+                <h3>Test Execution Steps</h3>
+                <div class="step-card">
+                    <h4><span class="step-number">1</span>Activate Workflow</h4>
+                    <ol>
+                        <li>Click the toggle switch at top right</li>
+                        <li>Ensure it says "Active"</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">2</span>Book Test Meeting</h4>
+                    <ol>
+                        <li>Go to your Calendly booking page</li>
+                        <li>Book a test appointment</li>
+                        <li><strong>IMPORTANT:</strong> Enter a valid website URL (e.g., https://www.shopify.com)</li>
+                        <li>Complete the booking</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">3</span>Monitor Execution</h4>
+                    <ol>
+                        <li>Go to n8n's "Executions" tab</li>
+                        <li>Watch for new execution to appear</li>
+                        <li>Click on execution to see details</li>
+                        <li>Check each node for successful completion</li>
+                    </ol>
+                </div>
+
+                <div class="step-card">
+                    <h4><span class="step-number">4</span>Verify Outputs</h4>
+                    <ul>
+                        <li>✓ Website analysis completed (check output)</li>
+                        <li>✓ GTM plan generated (check character count < 95,000)</li>
+                        <li>✓ Miro board created (visit Miro to see board)</li>
+                        <li>✓ Gamma presentation generated</li>
+                        <li>✓ Email sent and received</li>
+                    </ul>
+                </div>
+
+                <h3>Common Issues & Solutions</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Issue</th>
+                            <th>Likely Cause</th>
+                            <th>Solution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Calendly trigger not firing</td>
+                            <td>Webhook not registered</td>
+                            <td>Re-save Calendly node, check webhook in Calendly settings</td>
+                        </tr>
+                        <tr>
+                            <td>Miro authentication failed</td>
+                            <td>Missing "Bearer " prefix</td>
+                            <td>Ensure token starts with "Bearer " (with space)</td>
+                        </tr>
+                        <tr>
+                            <td>Shapes overlap on Miro</td>
+                            <td>AI positioning issue</td>
+                            <td>Check system prompt for clearer spacing instructions</td>
+                        </tr>
+                        <tr>
+                            <td>"Invalid JSON" error</td>
+                            <td>Quote mismatch in body</td>
+                            <td>Verify numbers don't have quotes, strings do</td>
+                        </tr>
+                        <tr>
+                            <td>Gamma API timeout</td>
+                            <td>Plan too long</td>
+                            <td>Check GTM plan is under 95,000 characters</td>
+                        </tr>
+                        <tr>
+                            <td>Email not sending</td>
+                            <td>OAuth expired</td>
+                            <td>Reconnect Gmail OAuth in credentials</td>
+                        </tr>
+                        <tr>
+                            <td>AI agent stops mid-execution</td>
+                            <td>Max iterations reached</td>
+                            <td>Increase max iterations to 80-100</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Debugging Tips</h3>
+                <div class="step-card">
+                    <h4>How to Debug Effectively</h4>
+                    <ol>
+                        <li><strong>Check Execution Log:</strong> See which node failed</li>
+                        <li><strong>View Node Output:</strong> Click on node to see response data</li>
+                        <li><strong>Check Error Messages:</strong> Read the full error, not just title</li>
+                        <li><strong>Verify API Responses:</strong> Ensure you're getting expected data structure</li>
+                        <li><strong>Test Nodes Individually:</strong> Use "Execute Node" to test one at a time</li>
+                        <li><strong>Check Expression Syntax:</strong> Verify {{ }} expressions are correct</li>
+                    </ol>
+                </div>
+
+                <h3>Performance Expectations</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Stage</th>
+                            <th>Expected Time</th>
+                            <th>What's Happening</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Calendly Trigger</td>
+                            <td>Instant</td>
+                            <td>Webhook received</td>
+                        </tr>
+                        <tr>
+                            <td>Website Enricher</td>
+                            <td>1-3 minutes</td>
+                            <td>AI crawling and analyzing website</td>
+                        </tr>
+                        <tr>
+                            <td>GTM Planner</td>
+                            <td>2-4 minutes</td>
+                            <td>AI creating comprehensive strategy</td>
+                        </tr>
+                        <tr>
+                            <td>Mindmap Creator</td>
+                            <td>3-5 minutes</td>
+                            <td>AI making 50+ API calls to Miro</td>
+                        </tr>
+                        <tr>
+                            <td>Presentation Maker</td>
+                            <td>30-60 seconds</td>
+                            <td>Gamma AI generating slides</td>
+                        </tr>
+                        <tr>
+                            <td>Email Delivery</td>
+                            <td>5-10 seconds</td>
+                            <td>Gmail sending message</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <strong>Total Execution Time:</strong> Approximately 7-15 minutes from booking to receiving email.
+                </div>
+
+                <h3>Success Criteria</h3>
+                <div class="success-box">
+                    <h4>Your workflow is successful when:</h4>
+                    <ul style="margin-top: 10px;">
+                        <li>✓ All nodes show green checkmarks</li>
+                        <li>✓ Website data is comprehensive and accurate</li>
+                        <li>✓ GTM plan has all 12 sections</li>
+                        <li>✓ Miro board contains 8+ primary branches with sub-nodes</li>
+                        <li>✓ Gamma presentation has proper slides</li>
+                        <li>✓ Email contains working download links</li>
+                        <li>✓ No errors in execution log</li>
+                    </ul>
+                </div>
+
+                <h3>Next Steps After Testing</h3>
+                <ol>
+                    <li><strong>Optimize Prompts:</strong> Refine system prompts based on output quality</li>
+                    <li><strong>Add Error Handling:</strong> Implement conditional logic for failures</li>
+                    <li><strong>Customize for Industries:</strong> Create variations for different sectors</li>
+                    <li><strong>Scale the Solution:</strong> Handle multiple bookings simultaneously</li>
+                    <li><strong>Integrate Analytics:</strong> Track conversion rates and success metrics</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h3>🎓 Learning Resources</h3>
+            <p>
+                <a href="https://docs.n8n.io" target="_blank">n8n Documentation</a> | 
+                <a href="https://developers.miro.com" target="_blank">Miro API Docs</a> | 
+                <a href="https://gamma.app/api" target="_blank">Gamma AI API</a> | 
+                <a href="https://developer.calendly.com" target="_blank">Calendly API</a>
+            </p>
+            <p style="margin-top: 20px; opacity: 0.8;">
+                © 2026 AI Workflow Training | Built with ❤️ for automation enthusiasts
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+
+            // Scroll to top of content
+            document.querySelector('.content').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
